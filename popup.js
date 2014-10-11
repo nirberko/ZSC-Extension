@@ -53,18 +53,6 @@ function parseXml(xml) {
         $("#lastTopics").find("ul").append("<li><a href='" + link + "'>" + title + "</a></li>");
     }
 
-    /*var i = 1;
-
-    $(items).each(function() {
-        if (i <= 5) {
-            var title = $(this).find("title").text();
-            var link = $(this).find("link").text();
-
-            $("#lastTopics").find("ul").append("<li><a href='" + link + "'>" + title + "</a></li>");
-        }
-        i++;
-    });*/
-
     $("ul a").click(function(){
         chrome.tabs.create({ url: $(this).attr("href") });
     });
