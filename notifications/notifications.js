@@ -24,7 +24,7 @@ function rss () {
                         var $item = $(this),
                             pubDate = new Date($item.find('pubDate').text());
 
-                        if (pubDate > lastUpdate) {
+                        if (pubDate > storage.lastUpdate) {
                             addNotification($item);
                         }
                     });
