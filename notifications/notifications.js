@@ -30,7 +30,7 @@ function rss () {
                     });
                 }
 
-                chrome.storage.local.set({lastUpdate: storage.lastUpdate.toJSON()});
+                chrome.storage.local.set({lastUpdate: new Date($xml.find('pubDate:first').text()).toJSON()});
 
                 setTimeout(rss, 10000);
             },
