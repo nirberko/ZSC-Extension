@@ -1,5 +1,5 @@
-chrome.storage.local.get(function (data) {
-    var lastUpdate = data.lastUpdate || null;
+chrome.storage.local.get(function (storage) {
+    var lastUpdate = storage.lastUpdate || null;
 
     chrome.notifications.onClicked.addListener(function (url) {
         window.open(url);
@@ -32,8 +32,8 @@ chrome.storage.local.get(function (data) {
                     });
                 }
 
-                lastUpdate = new Date($xml.find('pubDate:first').text()).toJSON();
-                chrome.storage.local.set({lastUpdate: lastUpdate});
+                lastUpdate = new Date($xml.find('pubDate:first').text());
+                chrome.storage.local.set({lastUpdate: lastUpdate.toJSON()});
 
                 setTimeout(rss, 10000);
             },
