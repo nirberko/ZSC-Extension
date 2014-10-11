@@ -29,12 +29,12 @@ $(document).ready(function () {
 
     $("#notifications").click(function() {
         var $notifications = $('#notifications');
+
         if (notificationState) {
             chrome.storage.local.set({'notificationState': false});
             $notifications.addClass("not-disable").removeClass("not-enable");
             notificationState = false;
-        }
-        else{
+        } else {
             chrome.storage.local.set({'notificationState': true});
             $notifications.addClass("not-enable").removeClass("not-disable");
             notificationState = true;

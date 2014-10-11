@@ -1,8 +1,7 @@
 var first = true;
 var notificationState = true;
 
-function checkNotState ()
-{
+function checkNotState () {
     chrome.storage.local.get('notificationState', function (state) {
         if (state != "undefined") {
             notificationState = state.notificationState;
@@ -23,8 +22,7 @@ $(function(){
     }, 30000);
 });
 
-function showNotification (msg)
-{
+function showNotification (msg) {
     var style = "display: none; position: fixed; right: 20px; bottom: 20px; background: white; font-size: 12px !important; font: normal 12px tahoma, helvetica, arial, sans-serif; ";
     style += "cursor: default; -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.2); box-shadow: 0 0 10px 0 rgba(0,0,0,0.2); z-index: 99999999999999999999999999999999999999";
 
