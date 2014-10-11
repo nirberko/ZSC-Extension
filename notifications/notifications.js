@@ -1,11 +1,9 @@
-chrome.storage.local.get(function (storage) {
-    var lastUpdate = storage.lastUpdate || null;
+chrome.notifications.onClicked.addListener(function (url) {
+    window.open(url);
+});
 
-    chrome.notifications.onClicked.addListener(function (url) {
-        window.open(url);
-    });
-
-    function rss () {
+function rss () {
+    chrome.storage.local.get(function (storage) {
         $.ajax({
             type: 'GET',
             url: 'http://www.zsc.co.il/index.php/rss/forums/1-zsc-rss/',
@@ -14,7 +12,7 @@ chrome.storage.local.get(function (storage) {
                 var $xml = $(data),
                     $items = $xml.find('item');
 
-                if (!lastUpdate) {
+                if (!storage.lastUpdate) {
                     for (var i = 0; i < 3; i++) {
                         var $item = $items.eq(i),
                             pubDate = new Date($item.find('pubDate').text());
@@ -22,7 +20,7 @@ chrome.storage.local.get(function (storage) {
                         addNotification($item);
                     }
                 } else {
-                    $items.each(function() {
+                    $items.each(function () {
                         var $item = $(this),
                             pubDate = new Date($item.find('pubDate').text());
 
@@ -32,8 +30,7 @@ chrome.storage.local.get(function (storage) {
                     });
                 }
 
-                lastUpdate = new Date($xml.find('pubDate:first').text());
-                chrome.storage.local.set({lastUpdate: lastUpdate.toJSON()});
+                chrome.storage.local.set({lastUpdate: storage.lastUpdate.toJSON()});
 
                 setTimeout(rss, 10000);
             },
@@ -48,19 +45,19 @@ chrome.storage.local.get(function (storage) {
                 });
             }
         });
-    }
+    });
+}
 
-    function addNotification($item) {
-        var link = $item.find('link').text(),
-            title = $item.find('title').text();
+function addNotification($item) {
+    var link = $item.find('link').text(),
+        title = $item.find('title').text();
 
-        chrome.notifications.create(link, {
-            type: 'basic',
-            title: title,
-            message: 'למעבר לחץ על ההודעה',
-            iconUrl: '/icons/128.png'
-        }, function () {});
-    }
+    chrome.notifications.create(link, {
+        type: 'basic',
+        title: title,
+        message: 'למעבר לחץ על ההודעה',
+        iconUrl: '/icons/128.png'
+    }, function () {});
+}
 
-    rss();
-});
+rss();
