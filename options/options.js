@@ -9,7 +9,7 @@ $(function() {
         var $this = $(this);
         chrome.storage.local.set({
             showNotifications: $this.find('input[name=showNotifications]').prop('checked'),
-            updateTime: Number($this.find('input[name=updateTime]').val()) * 1000
+            updateTime: Number($this.find('input[name=updateTime]').val())
         });
 
         event.preventDefault();

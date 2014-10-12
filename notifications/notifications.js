@@ -9,7 +9,7 @@ function rss () {
                 rss();
             });
         } else if (storage.updateTime === undefined) {
-            chrome.storage.local.set({updateTime: 10000}, function() {
+            chrome.storage.local.set({updateTime: 10}, function() {
                 rss();
             });
         } else if (storage.showNotifications) {
@@ -50,7 +50,7 @@ function rss () {
                     }, function () {});
                 },
                 complete: function () {
-                    setTimeout(rss, storage.updateTime);
+                    setTimeout(rss, storage.updateTime * 1000);
                 }
             });
         }
