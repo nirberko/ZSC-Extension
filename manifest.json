@@ -1,11 +1,7 @@
 {
     "name": "ZSC.co.il",
     "description": "ZSC",
-<<<<<<< HEAD
     "version": "1.4",
-=======
-    "version": "1.3",
->>>>>>> origin/master
     "manifest_version": 2,
     "browser_action": {
         "default_icon": "icons/128.png",
