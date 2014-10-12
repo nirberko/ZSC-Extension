@@ -15,11 +15,11 @@ body {
     margin: 23px 0 5px 0;
 }
 
-#links {
+.links {
     cursor: default;
 }
 
-#links a {
+.links a {
     color: rgba(255, 255, 255, 0.7);
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -32,9 +32,10 @@ body {
     font-size: 12px;
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer;
 }
 
-#links a:hover {
+.links a:hover {
     color: #fff;
     background: url("http://www.zsc.co.il/public/style_images/velvet/trans20.png") repeat;
     background: rgba(0, 0, 0, 0.2);

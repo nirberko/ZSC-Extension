@@ -6,7 +6,11 @@ $(function () {
 
     chrome.storage.local.get(function (storage) {
         if (!storage.numberTopics) {
+<<<<<<< HEAD
+            chrome.storage.local.set({numberTopics: 5}, function() {
+=======
             chrome.storage.local.set({numberTopics: 3}, function() {
+>>>>>>> origin/master
                 refresh();
             });
         } else {
@@ -18,11 +22,19 @@ $(function () {
 });
 
 function refresh() {
+<<<<<<< HEAD
+=======
     $("#lastTopics ul").html('');
+>>>>>>> origin/master
     $.get('http://www.zsc.co.il/index.php/rss/forums/1-zsc-rss/', function (data) {
         var items = $(data).find('item');
 
         chrome.storage.local.get(function (storage) {
+<<<<<<< HEAD
+            $("#lastTopics ul").html('');
+
+=======
+>>>>>>> origin/master
             for (var i = 0; i < storage.numberTopics; i++) {
                 var title = $(items[i]).find('title').text();
                 var link = $(items[i]).find('link').text();

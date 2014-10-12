@@ -3,6 +3,10 @@ chrome.notifications.onClicked.addListener(function (url) {
 });
 
 function rss () {
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
     chrome.storage.local.get(function (storage) {
         if (storage.showNotifications === undefined) {
             chrome.storage.local.set({showNotifications: true}, function() {

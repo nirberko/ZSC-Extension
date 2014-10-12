@@ -14,6 +14,11 @@ $(function() {
             numberTopics: Number($this.find('input[name=numberTopics]').val())
         });
 
+<<<<<<< HEAD
+        $this.find("button").text("נשמר!");
+
+=======
+>>>>>>> origin/master
         event.preventDefault();
     });
 });
