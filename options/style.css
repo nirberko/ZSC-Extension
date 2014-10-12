@@ -1,0 +1,57 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    min-width: 300px;
+}
+
+body {
+    font: normal 11px tahoma, helvetica, arial, sans-serif;
+    background: #08253d url("http://www.zsc.co.il/public/style_images/velvet/_custom/backgroundBlue.jpg") no-repeat 50% 0;
+    text-align: center;
+    padding-top: 3%;
+}
+
+#options
+{
+    background: #f5f8fa;
+    border: 1px solid #d5dde5;
+    border-spacing: 0;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    width: 400px;
+    margin: 2% auto;
+}
+
+#options td
+{
+    padding: 10px;
+    text-align: right;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+#options tr td:last-child
+{
+    text-align: center;
+}
+
+input[type='number']
+{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    text-align: center;
+    width: 20px;
+    width: 30px;
+    padding: 2px 15px 2px 0;
+    outline: none;
+    -webkit-transition: 0.2s;
+}
+
+input[type='number']:focus, input[type='number']:hover
+{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-right: 0;
+    width: 45px;
+}
