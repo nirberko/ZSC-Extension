@@ -35,6 +35,7 @@ body {
 #options tr td:last-child
 {
     text-align: center;
+    width: 110px;
 }
 
 input[type='number']

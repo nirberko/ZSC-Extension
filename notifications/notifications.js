@@ -3,10 +3,6 @@ chrome.notifications.onClicked.addListener(function (url) {
 });
 
 function rss () {
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
     chrome.storage.local.get(function (storage) {
         if (storage.showNotifications === undefined) {
             chrome.storage.local.set({showNotifications: true}, function() {
@@ -33,17 +29,18 @@ function rss () {
                             addNotification($item);
                         }
                     } else {
+                        var lastUpdate = new Date(storage.lastUpdate);
                         $items.each(function () {
                             var $item = $(this),
                                 pubDate = new Date($item.find('pubDate').text());
 
-                            if (pubDate > storage.lastUpdate) {
+                            if (pubDate > lastUpdate) {
                                 addNotification($item);
                             }
                         });
                     }
 
-                    chrome.storage.local.set({lastUpdate: new Date($xml.find('pubDate:first').text()).toJSON()});
+                    chrome.storage.local.set({lastUpdate: $xml.find('pubDate:first').text()});
                 },
                 error: function () {
                     chrome.notifications.create('error', {
